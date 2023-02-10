@@ -1,9 +1,8 @@
-
 import json
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
-import threading 
+
 from threading import stack_size
 stack_size(33554432)
 
@@ -37,25 +36,27 @@ with open("questiontwo.json") as f:
 
 # Sort each input array and print the result
 timingresult = []
+size = []
 for arr in data:
     timestart = perf_counter()
     low = 0
-    high = len(data) - 1
+    high = len(arr) - 1
     
     func1(arr, low, high)
     timestop = perf_counter()
+    size.append(len(arr))
     timingresult.append(timestop-timestart)
 
 
-print(data)
+
 print(timestop-timestart)
-plt.plot(timingresult)
+plt.plot(size, timingresult)
 plt.xlabel("Input Size")
 plt.ylabel("Time (seconds)")
 plt.show()
 
-with open("sorted.json", "w") as outfile:
-   json.dump(data, outfile)
+##with open("sorted.json", "w") as outfile:
+   ##json.dump(data, outfile)
 
 
 """
