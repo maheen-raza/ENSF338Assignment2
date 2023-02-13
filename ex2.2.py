@@ -30,7 +30,7 @@ def func2(array, start, end):
     array[start], array[high] = array[high], array[start]
     return high
 # Load the input arrays from the JSON file
-with open("questiontwo.json") as f:
+with open("ex2.5.json") as f:
     data = json.load(f)
     #inputs = data["inputs"]
 

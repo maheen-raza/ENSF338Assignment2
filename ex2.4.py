@@ -50,16 +50,16 @@ data = json.load(f)
 
 
 indice = list()
-time = list()
+times = list()
 
 for i in data:
     start = time.time()
     func1(i, 0, len(i)-1)
     end = time.time()
     indice.append(len(i))
-    time.append(end-start)
+    times.append(end-start)
 
-plt.plot(indice, time)
+plt.plot(indice, times)
 plt.xlabel("Index")
 plt.ylabel("Times")
 plt.title("QuickSort Times for Arrays")
